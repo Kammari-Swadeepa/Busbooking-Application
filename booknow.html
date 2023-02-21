@@ -1,0 +1,65 @@
+<html>
+  <head>
+    <style>
+      #f1{
+        text-align: center;
+        font-size: 25px;
+
+      }
+      img{
+        /* padding-left: 60%; */
+        height: 400px;
+        width:1200px;
+      }
+      body{
+        font-family:Georgia, 'Times New Roman', Times, serif;
+        font-weight: bold;
+        text-align: center;
+      }
+    </style> </head>
+  <body>
+    <img src="bus4.png">
+    <form action="proceed.html" onsubmit="return book1()" id="f1">
+    Enter passengers:<input
+      type="number"
+      name="passengers"
+      placeholder="enter number"
+      id="p2"
+   onchange="document.getElementById('p3').innerHTML=document.getElementById('p2').value*640" />*<br />
+    <p>Fare=640</p>
+    <p id="p3">Total:</p>
+    Enter card no:<input
+      type="number"
+      placeholder="enter valid cardno."
+      id="c1"/>
+      <br />
+    <input type="reset" >
+    <input type="submit" value="submit">
+    
+    </form>
+   
+    <script>
+      total = "";
+      function book1() {
+        var c=1;
+        var passengers = document.getElementById("p2").value;
+        var fare1 = document.getElementById("f2");
+        var para1 = document.getElementById("p3");
+        c *= (passengers * 640);
+        total=c;
+        para1.innerHTML = total;
+        if(passengers=="")
+        {
+          window.alert("no.of passengers should be entered")
+          return false;
+        }
+
+        var cardno = document.getElementById("c1").value;
+        if (cardno.length!=14  && cardno.length !=16) {
+          window.alert("card number should be  14 or 16 digits");
+          return false;
+        }
+      }
+    </script>
+  </body>
+</html>
